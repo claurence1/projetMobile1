@@ -1,0 +1,16 @@
+.form-detail-view {
+  display: grid;
+  /* grid-template-rows: 16% 32% 21% 30%; */
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 3rem;
+}
+
+.updateButton {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.card-container {
+  margin: 25px;
+}

@@ -1,0 +1,118 @@
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #777;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.inner-table {
+  width: 100%;
+}
+
+.inner-table mat-form-field {
+  margin-top: 15px;
+  width: 100%;
+}
+
+table {
+  width: 100%; 
+  
+}
+
+.div-table {
+  height: 400px;
+  overflow: auto;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+mat-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filterDocuments {
+width: 100%;
+margin-right:20px ;
+}
+
+
+/* mat-select {
+width: 300px;
+} */
+
+.width-90 {
+  width: 90%;
+}
+
+#card {
+  margin-bottom: 5em;
+}
+
+.mat-row:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.container {
+margin: 25px;
+}
+.mat-elevation-z8{
+box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.row-selected {
+background-color: #C8B3BD;
+}
+
+.max-width-cell {
+  max-width: 500px;
+}
+
+.action {
+  display: flex;
+  justify-content: space-around;
+}
+mat-card-title{
+display: flex;
+justify-content: space-between;
+}
+

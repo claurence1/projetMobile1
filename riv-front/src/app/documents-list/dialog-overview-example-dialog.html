@@ -1,0 +1,18 @@
+<div mat-dialog-content [formGroup]="documentForm">
+  <p> Create Document</p>
+      <mat-form-field>
+        <input matInput placeholder="titre" formControlName="title">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="version" formControlName="version">
+      </mat-form-field>     
+      <mat-form-field>
+          <mat-select (selectionChange)="getCategorieSelected($event)" placeholder="choose yout category">
+              <mat-option [value]="categorie.id" *ngFor="let categorie of data">{{categorie.name}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="submit()" cdkFocusInitial>Ok</button>
+</div>

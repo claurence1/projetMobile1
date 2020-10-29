@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" *ngIf="nav.visible">
+    <span routerLink="/" style="margin-right: 50px;"><img src="../../assets/img/riv.png" width="64px"
+            height="64px"></span>
+    <span>{{nav.context}}</span>
+    <span class="spacer"></span>
+    <span [ngClass]="{'span-gestion': nav.currentUser.UserTypeId === 1}">
+        <button *ngIf="nav.currentUser.UserTypeId === 1" mat-raised-button matBadge="{{nav.nbUpdate}}"
+            matBadgePosition="after" matBadgeColor="primary" color="warn" routerLink="/administration/request">
+            <mat-icon>notification_important</mat-icon>
+        </button>
+
+
+        <button mat-raised-button [matMenuTriggerFor]="menu" color="primary"><i
+                class="far fa-user"></i>{{nav.currentUser.firstName}} {{nav.currentUser.lastName}}</button>
+    </span>
+    <mat-menu #menu="matMenu">
+        <button *ngIf="nav.currentUser.UserTypeId === 1" mat-menu-item routerLink="/administration/users">
+            <i class="fas fa-user-cog"></i>
+            <span>Administration</span>
+        </button>
+        <button mat-menu-item (click)="signOut()">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Deconnexion</span>
+        </button>
+    </mat-menu>
+
+</mat-toolbar>

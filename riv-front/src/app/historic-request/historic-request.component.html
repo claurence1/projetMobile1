@@ -1,0 +1,31 @@
+<table mat-table [dataSource]="updates" class="tableConfirm">
+
+    <ng-container matColumnDef="updatedAt">
+      <th mat-header-cell *matHeaderCellDef> Validé le  </th>
+      <td mat-cell *matCellDef="let update" [ngClass]="{'back-valid': update.StatusUpdateId === 3, 'back-reject': update.StatusUpdateId === 2}"> {{update.updatedAt | date: 'dd/MM/yyyy'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef> Demandé le </th>
+      <td mat-cell *matCellDef="let update" [ngClass]="{'back-valid': update.StatusUpdateId === 3, 'back-reject': update.StatusUpdateId === 2}"> {{update.createdAt | date: 'dd/MM/yyyy'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="UserId">
+        <th mat-header-cell *matHeaderCellDef> Demandé par </th>
+        <td mat-cell *matCellDef="let update" [ngClass]="{'back-valid': update.StatusUpdateId === 3, 'back-reject': update.StatusUpdateId === 2}"> {{getUser(update.UserId)}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Titre </th>
+      <td mat-cell *matCellDef="let update" [ngClass]="{'back-valid': update.StatusUpdateId === 3, 'back-reject': update.StatusUpdateId === 2}"> {{update.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="seeMore">
+      <th mat-header-cell class="updateColumn" *matHeaderCellDef> Détails </th>
+      <td mat-cell class="icon-see-more" *matCellDef="let update" [ngClass]="{'back-valid': update.StatusUpdateId === 3, 'back-reject': update.StatusUpdateId === 2}">
+          <mat-icon>remove_red_eye</mat-icon>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="updatesListColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: updatesListColumns;"></tr>
+  </table>

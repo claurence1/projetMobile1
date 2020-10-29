@@ -1,0 +1,19 @@
+<mat-card class="card-container" style="text-align: center">
+  <mat-card-title class="title-card-authentification">
+    Authentification
+  </mat-card-title>
+  <mat-card-content>
+    <form class="login-container" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" formControlName="email" required>
+        <mat-error *ngIf="loginForm.get('email').invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Enter your secret password" type="password" formControlName="password" required>
+        <mat-error *ngIf="loginForm.get('password').invalid">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary">Se connecter</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+

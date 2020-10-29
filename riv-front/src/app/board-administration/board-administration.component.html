@@ -1,0 +1,14 @@
+<mat-sidenav-container style="height: 100%;" class="example-container" autosize>
+    <mat-sidenav class="format" mode="side" opened>
+        <mat-list>
+            <mat-list-item [ngClass]="{'activated': item === 'users'}" (click)="setItem()" routerLink="/administration/users"> Utilisateurs </mat-list-item>
+            <mat-list-item [ngClass]="{'activated': item === 'categorie'}" (click)="setItem()" routerLink="/administration/categorie"> Catégories </mat-list-item>
+            <mat-list-item [ngClass]="{'activated': item === 'request'}" (click)="setItem()" routerLink="/administration/request"> Demandes de validations </mat-list-item>
+            <mat-list-item [ngClass]="{'activated': item === 'historique'}" (click)="setItem()" routerLink="/administration/historique"> Historique de validations </mat-list-item>
+            <mat-list-item > <app-import></app-import> </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="format">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

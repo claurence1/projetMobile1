@@ -1,0 +1,22 @@
+.format {
+    /* padding-top: 64px; */
+    height: 100%;
+}
+
+mat-list-item:hover{
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+mat-sidenav-content {
+    padding-left: 5em;
+    padding-right: 5em;
+    margin-top: 2em;
+}
+.mat-drawer-container {
+    background-color: inherit;
+}
+
+.activated {
+    background-color: rgba(0,0,0,0.1);
+}

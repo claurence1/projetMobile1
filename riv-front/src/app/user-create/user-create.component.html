@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-title>
+    {{title}}
+</mat-card-title>
+  <mat-card-content style="text-align: center;">
+    <form [formGroup]="userForm" (ngSubmit)="ngOnSubmit()">
+      <div class="form-group">
+        <div formGroupName="general" class="grid-general">
+          <mat-form-field>
+            <input matInput placeholder="Nom" type="text" formControlName="lastName" id="userLastName"
+              class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Prénom" type="text" formControlName="firstName" id="userFirstName"
+              class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Email" type="email" formControlName="mail" id="userEmail"
+              class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Rôle</mat-label>
+            <mat-select formControlName="UserTypeId">
+              <mat-option *ngFor="let userTypes of userTypes" [value]="userTypes.id">
+                {{userTypes.libelle}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div formGroupName="pwd" class="grid-pwd" *ngIf="isCreated">
+
+          <mat-form-field>
+            <input matInput placeholder="Enter your password" formControlName="password"
+              [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Confirm your password" formControlName="confirmPassword" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+
+        </div>
+        <button type="submit" mat-raised-button color="primary">Envoyer</button>
+        <button mat-button type="button" (click)="resetUserForm()">Reset</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

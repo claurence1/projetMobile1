@@ -1,0 +1,21 @@
+<span class="importDocument">
+    <input type="file" class="inputfile" name="file" id="file" (change)="handleTest($event, testtest)" accept=".doc,.docx,application/msword">
+    <label class="mat-raised-button" for="file">
+        <i *ngIf="!dataloaded" style="font-size: 14px;font-weight: 500;font-style: normal;">
+            <i class="fas fa-file-upload"></i>
+            import document
+        </i>
+        <i *ngIf="dataloaded">
+            <mat-progress-spinner diameter="20" mode="indeterminate" style="margin:0 auto;"></mat-progress-spinner>
+        </i>
+    </label>
+
+    <textarea 
+        id="documentHtml"
+        name="documentHtml"
+        rows="5"
+        cols="33"
+        [(ngModel)]="document"
+        (ngModelChange)="htmlInputChange($event)" style="display:none;">
+    </textarea>
+</span>

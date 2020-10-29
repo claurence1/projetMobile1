@@ -1,0 +1,60 @@
+<form [formGroup]="ruleForm" (ngSubmit)="ngOnSubmit()">
+    <div class="form-group">
+        <div class="grp1">
+            <mat-form-field>
+                <input matInput placeholder="Title" type="text" formControlName="title" id="titleRule"
+                    class="form-control" />
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Exception" type="text" formControlName="exception" id="exceptionRule"
+                    class="form-control" />
+            </mat-form-field>
+        </div>
+        <div class="grp2">
+            <mat-form-field>
+                <textarea matInput placeholder="Description" type="text" formControlName="description"
+                    id="descriptionRule" class="form-control"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="grp3">
+            <mat-form-field>
+                <input matInput placeholder="Règle associées" id="inputBinded" [matAutocomplete]="auto" matInput
+                    formControlName="rulesId">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let rule of rulesList" value="" (click)="ajoutBindedRegle(rule)">
+                        {{ rule.title }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Règle parent" id="inputParent" [matAutocomplete]="ruleDocument" matInput
+                    formControlName="parentRule">
+                <mat-autocomplete #ruleDocument="matAutocomplete">
+                    <mat-option *ngFor="let rulesDocument of rulesByDocument" value="{{ rulesDocument.title }}"
+                        (click)="fillParentId(rulesDocument.id)">
+                        {{ rulesDocument.title }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Document" id="inputDocument" [matAutocomplete]="document" matInput>
+                <mat-autocomplete #document="matAutocomplete">
+                    <mat-option *ngFor="let documentCible of documentsListe" value="{{ documentCible.title }}"
+                        (click)="fillRuleDocuments(documentCible)">
+                        {{ documentCible.title }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+        <div>
+            <span *ngFor="let regle of regles">
+                {{ regle.title }}
+            </span>
+        </div>
+        <div>
+            <button mat-button (click)="closeDialog()">Annuler</button>
+            <button type="submit" mat-raised-button color="primary">Créer</button>
+            
+        </div>
+    </div>
+</form>
